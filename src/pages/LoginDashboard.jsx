@@ -61,7 +61,7 @@ export default function LoginDashboard() {
                 </form>
 
                 <div className="mt-6 text-center">
-                    <p className="text-xs text-slate-500">¿No tienes cuenta? <span className="text-blue-400 cursor-pointer hover:underline">Regístrate gratis</span></p>
+                    <p className="text-xs text-slate-500">¿No tienes cuenta? <button onClick={() => navigate('/registro')} className="text-blue-400 cursor-pointer hover:underline bg-transparent border-none p-0 align-baseline">Regístrate gratis</button></p>
                 </div>
             </div>
         </div>

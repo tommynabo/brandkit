@@ -58,14 +58,15 @@ const Navbar = () => {
 
 export default function PricingPage() {
     return (
-        <div className="min-h-screen pt-32 px-6 bg-[#0B0B1E]">
+        <div className="min-h-screen bg-[#0B0B1E] pb-20">
             <Navbar />
-            <div className="text-center mb-16">
+            <div className="pt-32 px-6 max-w-5xl mx-auto">
+            <div className="text-center mb-16 mt-12">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Planes simples y transparentes</h1>
                 <p className="text-slate-400">Comienza gratis, paga solo si te enamoras de tu marca.</p>
             </div>
             
-            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 pb-20 items-center">
+            <div className="grid md:grid-cols-2 gap-8 pb-20 items-center mt-16">
                 {/* Free Tier */}
                 <div className="glass-card p-8 rounded-3xl border-white/5 relative bg-[#0f1021]">
                     <h3 className="text-2xl font-bold mb-2 text-white">Explorador</h3>
@@ -97,6 +98,7 @@ export default function PricingPage() {
                         Comprar Ahora
                     </button>
                 </div>
+            </div>
             </div>
         </div>
     );

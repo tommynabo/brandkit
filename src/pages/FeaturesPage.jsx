@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Layout, Monitor, Palette } from 'lucide-react';
+import { Layout, Monitor, Palette, ArrowRight, Menu, X, Hexagon } from 'lucide-react';
 import { LogoDisplay, ColorCard } from '../tool/components/BrandComponents';
 
 const Navbar = () => {
     const navigate = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-    const { ArrowRight, Menu, X, Hexagon } = require('lucide-react');
 
     return (
         <nav className="fixed w-full z-50 bg-[#0B0B1E]/90 backdrop-blur-xl border-b border-white/10">
