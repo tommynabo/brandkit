@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, useNavigate, useLocation, Link } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation, Link } from 'react-router-dom';
 import { generateBrandKit, refineMissionText } from './services/geminiService';
 import { BrandKitData } from './types';
 import { ArrowRight, Wand2, Loader2, Layout, Layers, ShieldCheck, Download, Share2, Sparkles, Globe, Palette, DollarSign, CheckCircle2, Zap, Play, Image as ImageIcon, Menu, X, Hexagon, Lock, Mail, Monitor, Grid } from 'lucide-react';
@@ -744,10 +744,4 @@ const App = () => {
   );
 };
 
-export default function AppWrapper() {
-  return (
-    <Router>
-      <App />
-    </Router>
-  );
-}
+export default App;

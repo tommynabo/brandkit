@@ -47,7 +47,7 @@ export default function LoginPage() {
           <h2 className="text-2xl font-bold text-white">
             {isLogin ? 'Iniciar Sesión' : 'Crear Cuenta'}
           </h2>
-          <p className="text-gray-400 mt-2">EmailSnipe</p>
+          <p className="text-gray-400 mt-2">BrandKit</p>
         </div>
 
         <form onSubmit={handleAuth} className="space-y-4">

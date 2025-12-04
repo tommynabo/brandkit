@@ -10,7 +10,7 @@ export default {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
-        // Colores personalizados para EmailSnipe
+        // Colores personalizados para BrandKit (Dark Mode)
         primary: {
           50: '#f5f3ff',
           100: '#ede9fe',
@@ -28,6 +28,18 @@ export default {
           bg: '#0B0C10',
           card: '#15161E',
           border: '#2A2B35'
+        },
+        // Colores oscuros específicos para BrandKit
+        brandkit: {
+          'darkest': '#080816',
+          'dark-bg': '#0B0B1E',
+          'dark-card': '#0f1021',
+          'sidebar': '#14152A',
+          'card-light': '#1A1C30',
+          'header': '#1E2035',
+          'ui-dark': '#111',
+          'ui-medium': '#222',
+          'ui-light': '#333',
         }
       }
     },

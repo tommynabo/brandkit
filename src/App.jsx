@@ -3,41 +3,21 @@ import { Toaster } from 'react-hot-toast';
 import { useEffect, useState } from 'react';
 import { supabase } from './lib/supabase';
 
-// 1. IMPORTAR EL DASHBOARD
-import ToolApp from './tool/App';
-
-// 2. IMPORTAR LA LANDING
+// Pages
 import LandingPage from "./pages/landing/LandingPage";
-
-// 3. IMPORTAR EL LOGIN
-import LoginPage from './pages/LoginPage';
-
-const ProtectedRoute = ({ children }) => {
-  const [session, setSession] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setLoading(false);
-    });
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      setLoading(false);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  if (loading) return <div className="h-screen bg-[#0B0C10] flex items-center justify-center text-white">Cargando...</div>;
-  
-  if (!session) return <Navigate to="/login" replace />;
-
-  return children;
-};
+import LoginDashboard from './pages/LoginDashboard';
+import CreatePage from './pages/CreatePage';
+import ResultsPage from './pages/ResultsPage';
+import FeaturesPage from './pages/FeaturesPage';
+import PricingPage from './pages/PricingPage';
 
 function App() {
+  const [generatedKit, setGeneratedKit] = useState(null);
+
+  const handleGenerationSuccess = (data) => {
+    setGeneratedKit(data);
+  };
+
   return (
     <BrowserRouter>
       <Toaster position="bottom-right" toastOptions={{
@@ -46,12 +26,11 @@ function App() {
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/app/*" element={
-          <ProtectedRoute>
-            <ToolApp />
-          </ProtectedRoute>
-        } />
+        <Route path="/login" element={<LoginDashboard />} />
+        <Route path="/features" element={<FeaturesPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/create" element={<CreatePage onGenerate={handleGenerationSuccess} />} />
+        <Route path="/kit/:id" element={generatedKit ? <ResultsPage data={generatedKit} /> : <CreatePage onGenerate={handleGenerationSuccess} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
